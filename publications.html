@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications · Chin-Yee & Hsia Hematology Research Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --crimson:#8B1A2B;--crimson-dk:#5C0F1B;--crimson-lt:#B8354A;
+      --blush:#F2E4E4;--warm-white:#FAF7F5;--stone:#E8E0DC;
+      --text:#1C1211;--muted:#6B5858;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--warm-white);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:rgba(250,247,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,26,43,0.10);transition:padding .3s}
+    .nav-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--crimson-dk);letter-spacing:0.02em;line-height:1.2;text-decoration:none}
+    .nav-links{display:flex;gap:2.2rem;list-style:none}
+    .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--crimson)}
+    .section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--crimson);font-weight:500;margin-bottom:1rem;display:block}
+    h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;color:var(--text)}
+    h2 em{font-style:italic;color:var(--crimson)}
+
+    .page-header{padding:10rem 5vw 5rem;background:var(--crimson-dk);position:relative;overflow:hidden}
+    .page-header::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(180,40,60,0.3) 0%,transparent 70%)}
+    .page-header-inner{position:relative;z-index:2}
+    .page-header .section-label{color:rgba(242,228,228,0.6)}
+    .page-header h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--blush);line-height:1.1}
+    .page-header h1 em{font-style:italic;color:#fff}
+    .page-header p{margin-top:1.2rem;font-size:1rem;line-height:1.8;color:rgba(242,228,228,0.7);max-width:500px}
+
+    .marquee-strip{background:var(--crimson);padding:0.85rem 0;overflow:hidden;white-space:nowrap}
+    .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}
+    .marquee-inner span{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0 3rem}
+    .marquee-inner span::before{content:'◆';margin-right:3rem;opacity:0.5;font-size:0.5rem;vertical-align:middle}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* HIGHLIGHTS */
+    .highlights{padding:7rem 5vw;background:var(--blush)}
+    .highlights-header{margin-bottom:3rem}
+    .highlights-header h2{margin-bottom:0.8rem}
+    .highlights-header p{font-size:1rem;line-height:1.75;color:var(--muted);max-width:600px}
+    .highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .highlight-card{background:var(--warm-white);border-radius:4px;padding:2rem 1.8rem;border-top:3px solid var(--crimson);transition:transform .2s,box-shadow .2s}
+    .highlight-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(92,15,27,0.1)}
+    .highlight-journal{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--crimson);font-weight:600;margin-bottom:0.6rem}
+    .highlight-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:0.5rem}
+    .highlight-authors{font-size:0.8rem;color:var(--muted);line-height:1.5}
+    .highlight-authors strong{color:var(--crimson-dk);font-weight:600}
+    .highlight-year{font-size:0.75rem;color:var(--muted);margin-top:0.8rem}
+
+    /* FULL LISTS */
+    .publications{padding:7rem 5vw}
+    .pub-pi-section{margin-bottom:5rem}
+    .pub-pi-section:last-child{margin-bottom:0}
+    .pub-pi-title{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--text);margin-bottom:0.5rem}
+    .pub-pi-sub{font-size:0.85rem;color:var(--muted);margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:2px solid var(--crimson)}
+    .pub-item{padding:1.6rem 0 1.6rem 1.5rem;border-left:3px solid transparent;border-bottom:1px solid var(--stone);transition:border-color .2s,padding-left .2s;position:relative}
+    .pub-item:last-child{border-bottom:none}
+    .pub-item:hover{border-left-color:var(--crimson);padding-left:2rem}
+    .pub-year-tag{display:inline-block;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#fff;background:var(--crimson);padding:0.2rem 0.65rem;border-radius:2px;font-weight:600;margin-bottom:0.5rem}
+    .pub-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:0.4rem}
+    .pub-authors{font-size:0.83rem;color:var(--muted);margin-bottom:0.3rem;line-height:1.5}
+    .pub-authors strong{color:var(--crimson-dk);font-weight:600}
+    .pub-journal{font-size:0.82rem;font-style:italic;color:var(--muted)}
+    .pub-note{font-size:0.78rem;color:var(--crimson);margin-top:0.3rem}
+
+    /* PROFILES */
+    .profiles{background:var(--stone);padding:5rem 5vw}
+    .profiles h2{margin-bottom:2.5rem}
+    .profiles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .profile-card{background:var(--warm-white);padding:2rem 1.8rem;border-radius:4px;text-decoration:none;border:1px solid rgba(139,26,43,0.08);transition:transform .2s,box-shadow .2s;display:flex;align-items:center;gap:1.2rem}
+    .profile-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(92,15,27,0.1)}
+    .profile-icon{font-size:1.6rem;flex-shrink:0}
+    .profile-text h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--text);margin-bottom:0.2rem}
+    .profile-text p{font-size:0.78rem;color:var(--muted)}
+
+    footer{background:var(--crimson-dk);padding:4rem 5vw 2.5rem;color:rgba(242,228,228,0.6)}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(242,228,228,0.1)}
+    .footer-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--blush);line-height:1.2;text-decoration:none;display:block;margin-bottom:1rem}
+    .footer-brand p{font-size:0.85rem;line-height:1.75;max-width:280px}
+    .footer-links h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(242,228,228,0.9);margin-bottom:1rem}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:0.55rem}
+    .footer-links a{font-size:0.85rem;color:rgba(242,228,228,0.55);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--blush)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem}
+
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:900px){
+      .highlights-grid{grid-template-columns:1fr 1fr}
+      .profiles-grid{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
+    }
+    @media(max-width:600px){.highlights-grid,.profiles-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html" class="active">Publications</a></li>
+      <li><a href="contact.html">Get Involved</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Our Output</span>
+      <h1>Publications &amp;<br><em>Research</em></h1>
+      <p>Selected research outputs from the Chin-Yee & Hsia Hematology Research Lab, spanning rare hematologic disease, clinical decision making, and AI in medicine.</p>
+    </div>
+  </div>
+
+  <div class="marquee-strip"><div class="marquee-inner">
+    <span>JAMA Network Open</span><span>Blood Advances</span><span>Lancet Haematology</span>
+    <span>CMAJ</span><span>American Journal of Hematology</span><span>Thrombosis Research</span>
+    <span>JAMA Network Open</span><span>Blood Advances</span><span>Lancet Haematology</span>
+    <span>CMAJ</span><span>American Journal of Hematology</span><span>Thrombosis Research</span>
+  </div></div>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <div class="highlights-header fade-in">
+      <span class="section-label">Selected Highlights</span>
+      <h2>Recent <em>Impact</em></h2>
+      <p>A selection of high-impact publications showcasing our research contributions across hematology, clinical decision-making, and patient outcomes.</p>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card fade-in">
+        <div class="highlight-journal">JAMA Network Open · 2025</div>
+        <div class="highlight-title">Cancer Labeling, Risk Perception, and Treatment Choices in Clonal Cytopenia of Undetermined Significance</div>
+        <div class="highlight-authors"><strong>Chin-Yee B</strong>, Latham AJ, Varga S</div>
+        <div class="highlight-year">2025;8(7):e2523733</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-journal">Lancet Haematology · 2020</div>
+        <div class="highlight-title">Eltrombopag versus intravenous immunoglobulin for first-line treatment of immune thrombocytopenia: a randomized trial</div>
+        <div class="highlight-authors">Cheng G, Saleh MN, Marcher C, <strong>Hsia CC</strong>, et al.</div>
+        <div class="highlight-year">2020;7(9):e640–e648</div>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-journal">CMAJ · 2020</div>
+        <div class="highlight-title">Erythrocytosis associated with sodium–glucose cotransporter 2 inhibitors: case series and literature review</div>
+        <div class="highlight-authors"><strong>Chin-Yee B</strong>, first author</div>
+        <div class="highlight-year">2020;192(7):E171–E175</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL LISTS -->
+  <section class="publications">
+    <div class="fade-in" style="margin-bottom:1rem">
+      <span class="section-label">Complete Lists</span>
+      <h2>All <em>Publications</em></h2>
+    </div>
+
+    <div class="pub-pi-section fade-in">
+      <div class="pub-pi-title">Dr. Benjamin Chin-Yee</div>
+      <div class="pub-pi-sub">Selected peer-reviewed publications</div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2025</span>
+        <div class="pub-title">Cancer Labeling, Risk Perception, and Treatment Choices in Clonal Cytopenia of Undetermined Significance</div>
+        <div class="pub-authors"><strong>Chin-Yee B</strong>, Latham AJ, Varga S</div>
+        <div class="pub-journal">JAMA Network Open. 2025;8(7):e2523733</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2025</span>
+        <div class="pub-title">SGLT2i-associated erythrocytosis: Closing the evidence gap</div>
+        <div class="pub-authors"><strong>Chin-Yee B</strong>; Hsia CC</div>
+        <div class="pub-journal">Blood Advances. 2025;9(16):4321–4322</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2025</span>
+        <div class="pub-title">A Single-Center Retrospective Study of the Investigation of Monoclonal B-Cell Lymphocytosis (MBL) and Chronic Lymphocytic Leukemia (CLL) in Southwestern Ontario: Are We Over-Investigating?</div>
+        <div class="pub-authors">Hoxha O; Lad M; Hedley BD; <strong>Chin-Yee B</strong>; Hsia CC; et al.</div>
+        <div class="pub-journal">Int J Lab Hematol. 2025;47(5):891–897</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2024</span>
+        <div class="pub-title">Communication and decision-making between laboratory and clinic in hematology practice</div>
+        <div class="pub-authors"><strong>Chin-Yee B</strong>, et al.</div>
+        <div class="pub-journal">American Journal of Hematology. 2024</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2020</span>
+        <div class="pub-title">Erythrocytosis associated with sodium–glucose cotransporter 2 inhibitors: case series and literature review</div>
+        <div class="pub-authors"><strong>Chin-Yee B</strong>, et al.</div>
+        <div class="pub-journal">CMAJ. 2020;192(7):E171–E175</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2019</span>
+        <div class="pub-title">Next-generation sequencing panels for hematologic malignancies: implementation and clinical impact</div>
+        <div class="pub-authors"><strong>Chin-Yee B</strong>, et al.</div>
+        <div class="pub-journal">European Journal of Haematology. 2019;103(6):599–606</div>
+      </div>
+    </div>
+
+    <div class="pub-pi-section fade-in">
+      <div class="pub-pi-title">Dr. Cyrus Hsia</div>
+      <div class="pub-pi-sub">Selected peer-reviewed publications</div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2025</span>
+        <div class="pub-title">SGLT2i-associated erythrocytosis: Closing the evidence gap</div>
+        <div class="pub-authors">Chin-Yee B; <strong>Hsia CC</strong></div>
+        <div class="pub-journal">Blood Advances. 2025;9(16):4321–4322</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2025</span>
+        <div class="pub-title">A Single-Center Retrospective Study of the Investigation of MBL and CLL in Southwestern Ontario: Are We Over-Investigating?</div>
+        <div class="pub-authors">Hoxha O; Lad M; Hedley BD; Chin-Yee B; <strong>Hsia CC</strong>; et al.</div>
+        <div class="pub-journal">Int J Lab Hematol. 2025;47(5):891–897</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2025</span>
+        <div class="pub-title">Secondary erythrocytosis management practices in Canada: a tertiary center review</div>
+        <div class="pub-authors"><strong>Hsia CC</strong>, et al.</div>
+        <div class="pub-journal">In submission</div>
+        <div class="pub-note">In submission</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2023</span>
+        <div class="pub-title">Evaluation of anticoagulation practices in hospitalized patients with hematologic disorders</div>
+        <div class="pub-authors"><strong>Hsia CC</strong>, et al.</div>
+        <div class="pub-journal">Thrombosis Research. 2023</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2021</span>
+        <div class="pub-title">Optimizing anticoagulant use in cancer-associated thrombosis: outcomes from a real-world cohort</div>
+        <div class="pub-authors"><strong>Hsia CC</strong>, et al.</div>
+        <div class="pub-journal">Journal of Thrombosis and Haemostasis. 2021</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2020</span>
+        <div class="pub-title">Eltrombopag versus intravenous immunoglobulin for first-line treatment of immune thrombocytopenia: a randomized trial</div>
+        <div class="pub-authors">Cheng G, Saleh MN, Marcher C, <strong>Hsia CC</strong>, et al.</div>
+        <div class="pub-journal">Lancet Haematology. 2020;7(9):e640–e648</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2020</span>
+        <div class="pub-title">Management practices in secondary erythrocytosis: cohort data from two UK centers</div>
+        <div class="pub-authors">Maybury B; <strong>Hsia CC</strong>, et al.</div>
+        <div class="pub-journal">British Journal of Haematology. 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year-tag">2019</span>
+        <div class="pub-title">Risk stratification and management of bleeding in patients on anticoagulation therapy</div>
+        <div class="pub-authors"><strong>Hsia CC</strong>, et al.</div>
+        <div class="pub-journal">Annals of Hematology. 2019</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILES -->
+  <section class="profiles">
+    <span class="section-label">External Profiles</span>
+    <h2>Find Our Full <em>Publication Lists</em></h2>
+    <div class="profiles-grid">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Chin-Yee+B" target="_blank" class="profile-card fade-in">
+        <div class="profile-icon">🔬</div>
+        <div class="profile-text">
+          <h3>Dr. Chin-Yee — PubMed</h3>
+          <p>Full publication list on PubMed</p>
+        </div>
+      </a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Hsia+CC" target="_blank" class="profile-card fade-in">
+        <div class="profile-icon">🔬</div>
+        <div class="profile-text">
+          <h3>Dr. Hsia — PubMed</h3>
+          <p>Full publication list on PubMed</p>
+        </div>
+      </a>
+      <a href="https://scholar.google.com" target="_blank" class="profile-card fade-in">
+        <div class="profile-icon">📖</div>
+        <div class="profile-text">
+          <h3>Google Scholar</h3>
+          <p>Lab profile & citation metrics</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+        <p>Bridging insights between the clinical laboratory and the bedside to transform patient care.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="contact.html">Get Involved</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Chin-Yee & Hsia Hematology Research Lab</p>
+      <p>Western University · London, Ontario</p>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting)
+          e.target.parentElement.querySelectorAll('.fade-in')
+            .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*120));
+      });
+    },{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+    const nav=document.querySelector('nav');
+    window.addEventListener('scroll',()=>{
+      nav.style.padding=window.scrollY>60?'0.9rem 5vw':'1.4rem 5vw';
+    });
+  </script>
+</body>
+</html>

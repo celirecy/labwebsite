@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team · Chin-Yee & Hsia Hematology Research Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --crimson:#8B1A2B;--crimson-dk:#5C0F1B;--crimson-lt:#B8354A;
+      --blush:#F2E4E4;--warm-white:#FAF7F5;--stone:#E8E0DC;
+      --text:#1C1211;--muted:#6B5858;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--warm-white);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:rgba(250,247,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,26,43,0.10);transition:padding .3s}
+    .nav-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--crimson-dk);letter-spacing:0.02em;line-height:1.2;text-decoration:none}
+    .nav-links{display:flex;gap:2.2rem;list-style:none}
+    .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--crimson)}
+    .section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--crimson);font-weight:500;margin-bottom:1rem;display:block}
+    h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;color:var(--text)}
+    h2 em{font-style:italic;color:var(--crimson)}
+
+    /* PAGE HEADER */
+    .page-header{padding:10rem 5vw 5rem;background:var(--crimson-dk);position:relative;overflow:hidden}
+    .page-header::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(180,40,60,0.3) 0%,transparent 70%)}
+    .page-header-inner{position:relative;z-index:2}
+    .page-header .section-label{color:rgba(242,228,228,0.6)}
+    .page-header h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--blush);line-height:1.1}
+    .page-header h1 em{font-style:italic;color:#fff}
+    .page-header p{margin-top:1.2rem;font-size:1rem;line-height:1.8;color:rgba(242,228,228,0.7);max-width:500px}
+
+    /* MARQUEE */
+    .marquee-strip{background:var(--crimson);padding:0.85rem 0;overflow:hidden;white-space:nowrap}
+    .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}
+    .marquee-inner span{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0 3rem}
+    .marquee-inner span::before{content:'◆';margin-right:3rem;opacity:0.5;font-size:0.5rem;vertical-align:middle}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* PI SECTION */
+    .pis{padding:7rem 5vw}
+    .pis-header{margin-bottom:4rem}
+    .pis-header h2{margin-bottom:0.8rem}
+    .pis-header p{font-size:1rem;line-height:1.75;color:var(--muted);max-width:540px}
+    .pi-card{display:grid;grid-template-columns:320px 1fr;gap:4rem;align-items:start;padding:4rem 0;border-top:1px solid var(--stone)}
+    .pi-card:last-child{border-bottom:1px solid var(--stone)}
+    .pi-img{border-radius:4px;overflow:hidden;aspect-ratio:3/4;background:var(--crimson-dk)}
+    .pi-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+    .pi-info h3{font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--text);margin-bottom:0.3rem}
+    .pi-info .role{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--crimson);font-weight:500;margin-bottom:1.5rem;display:block}
+    .pi-info p{font-size:0.95rem;line-height:1.85;color:var(--muted);margin-bottom:1rem}
+    .pi-info p strong{color:var(--text);font-weight:500}
+    .pi-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem}
+    .pi-meta-item{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--muted)}
+
+    /* TEAM MEMBERS */
+    .team-members{background:var(--stone);padding:7rem 5vw}
+    .team-members-header{margin-bottom:3.5rem}
+    .team-members-header h2{margin-bottom:0.8rem}
+    .team-members-header p{font-size:1rem;line-height:1.75;color:var(--muted);max-width:500px}
+
+    /* ADMIN SECTION */
+    .team-group{margin-bottom:3.5rem}
+    .team-group-title{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--crimson-dk);margin-bottom:1.8rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(139,26,43,0.15)}
+    .members-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .member-card{background:var(--warm-white);border-radius:4px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .member-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(92,15,27,0.1)}
+    .member-img{height:220px;overflow:hidden;background:var(--crimson-dk);display:flex;align-items:center;justify-content:center}
+    .member-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s}
+    .member-card:hover .member-img img{transform:scale(1.04)}
+    .member-img .placeholder{opacity:0.25}
+    .member-body{padding:1.5rem}
+    .member-body h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:0.25rem}
+    .member-body .role{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--crimson);font-weight:500;margin-bottom:0.6rem;display:block}
+    .member-body p{font-size:0.84rem;line-height:1.7;color:var(--muted)}
+
+    /* JOIN CTA */
+    .join-cta{background:var(--crimson-dk);padding:6rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+    .join-cta-text .section-label{color:rgba(242,228,228,0.6)}
+    .join-cta-text h2{color:var(--blush);margin-bottom:1rem}
+    .join-cta-text p{font-size:1rem;line-height:1.8;color:rgba(242,228,228,0.7);max-width:480px}
+    .btn-light{display:inline-block;padding:0.9rem 2.4rem;background:var(--blush);color:var(--crimson-dk);font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s;flex-shrink:0}
+    .btn-light:hover{background:#fff}
+
+    footer{background:var(--crimson-dk);padding:4rem 5vw 2.5rem;color:rgba(242,228,228,0.6)}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(242,228,228,0.1)}
+    .footer-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--blush);line-height:1.2;text-decoration:none;display:block;margin-bottom:1rem}
+    .footer-brand p{font-size:0.85rem;line-height:1.75;max-width:280px}
+    .footer-links h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(242,228,228,0.9);margin-bottom:1rem}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:0.55rem}
+    .footer-links a{font-size:0.85rem;color:rgba(242,228,228,0.55);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--blush)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem}
+
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:900px){
+      .pi-card{grid-template-columns:1fr;gap:2rem}
+      .pi-img{aspect-ratio:4/3;max-width:280px}
+      .members-grid{grid-template-columns:1fr 1fr}
+      .join-cta{flex-direction:column}
+      .nav-links{display:none}
+    }
+    @media(max-width:600px){.members-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Get Involved</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Our People</span>
+      <h1>The Team Behind<br>the <em>Science</em></h1>
+      <p>Clinician-scientists, researchers, and trainees working together to advance hematology care.</p>
+    </div>
+  </div>
+
+  <div class="marquee-strip"><div class="marquee-inner">
+    <span>Principal Investigators</span><span>Researchers</span><span>Students</span>
+    <span>Clinician-Scientists</span><span>Western University</span><span>London Health Sciences Centre</span>
+    <span>Principal Investigators</span><span>Researchers</span><span>Students</span>
+    <span>Clinician-Scientists</span><span>Western University</span><span>London Health Sciences Centre</span>
+  </div></div>
+
+  <!-- PIs -->
+  <section class="pis">
+    <div class="pis-header fade-in">
+      <span class="section-label">Leadership</span>
+      <h2>Principal <em>Investigators</em></h2>
+      <p>Our lab is co-led by two clinician-scientists with complementary expertise spanning clinical hematology, laboratory medicine, and translational research.</p>
+    </div>
+
+    <div class="pi-card fade-in">
+      <div class="pi-img">
+        <img src="https://hsiaresearchers.github.io/moleculelab/images/BenProfilePic.jpg" alt="Dr. Benjamin Chin-Yee" />
+      </div>
+      <div class="pi-info">
+        <h3>Dr. Benjamin Chin-Yee</h3>
+        <span class="role">Principal Investigator · Hematologist</span>
+        <p>Dr. Chin-Yee is a hematologist and clinician-scientist whose research focuses on the <strong>early identification of rare hematologic diseases</strong> and the use of novel biomarkers to guide clinical decision-making.</p>
+        <p>His work bridges the clinical laboratory and patient care, aiming to reduce diagnostic delays and improve outcomes for patients with rare blood disorders — including PNH, immune cytopenias, and unexplained cytopenia syndromes.</p>
+        <p>Dr. Chin-Yee is also committed to training the next generation of physician-scientists, mentoring students and fellows in both clinical and research settings.</p>
+        <div class="pi-meta">
+          <div class="pi-meta-item">🏛️ &nbsp;Western University, Department of Medicine</div>
+          <div class="pi-meta-item">🏥 &nbsp;London Health Sciences Centre</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pi-card fade-in">
+      <div class="pi-img">
+        <img src="https://hsiaresearchers.github.io/moleculelab/images/CyrusProfilePic.png" alt="Dr. Cyrus Hsia" />
+      </div>
+      <div class="pi-info">
+        <h3>Dr. Cyrus Hsia</h3>
+        <span class="role">Principal Investigator · Hematologist</span>
+        <p>Dr. Hsia is a hematologist and physician-scientist with expertise in <strong>hematologic pathology and clinical laboratory medicine</strong>. His research investigates how clonal evolution in conditions like PNH shapes disease trajectory.</p>
+        <p>Dr. Hsia's work spans the interface of clinical hematology and laboratory science — studying how changes in laboratory parameters over time relate to clinical outcomes, and building longitudinal research programs that link lab findings with patient trajectories.</p>
+        <p>He brings deep expertise in flow cytometry, morphology, and hematologic diagnosis, and plays a central role in the lab's translational research agenda.</p>
+        <div class="pi-meta">
+          <div class="pi-meta-item">🏛️ &nbsp;Western University, Department of Medicine</div>
+          <div class="pi-meta-item">🏥 &nbsp;London Health Sciences Centre</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM MEMBERS -->
+  <section class="team-members">
+    <div class="team-members-header fade-in">
+      <span class="section-label">Research Team</span>
+      <h2>Researchers, Staff &amp; <em>Students</em></h2>
+      <p>Our team includes dedicated staff, researchers, and students who contribute across all aspects of the lab's work.</p>
+    </div>
+
+    <div class="team-group fade-in">
+      <div class="team-group-title">Administration</div>
+      <div class="members-grid">
+        <div class="member-card">
+          <div class="member-img">
+            <img src="https://hsiaresearchers.github.io/moleculelab/images/RuiProfilePic.jpg" alt="Rui Su" />
+          </div>
+          <div class="member-body">
+            <h3>Rui Su</h3>
+            <span class="role">Lab Coordinator</span>
+            <p>Coordinating lab operations and contributing to research initiatives across hematology and biomarker studies.</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <svg class="placeholder" width="60" height="60" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="30" r="18" stroke="white" stroke-width="1.5"/><path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="white" stroke-width="1.5"/></svg>
+          </div>
+          <div class="member-body">
+            <h3>Heather Bowman</h3>
+            <span class="role">Administration Assistance</span>
+            <p>Providing administrative support to the lab and its research activities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-group fade-in">
+      <div class="team-group-title">Students</div>
+      <div class="members-grid">
+        <div class="member-card">
+          <div class="member-img">
+            <img src="https://hsiaresearchers.github.io/moleculelab/images/ella_headshot.jpg" alt="Ella Derkzen" />
+          </div>
+          <div class="member-body">
+            <h3>Ella Derkzen</h3>
+            <span class="role">Student · Engineering</span>
+            <p>Western University Faculty of Engineering</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="https://hsiaresearchers.github.io/moleculelab/images/jhsia_headshot_2025_10_18.jpg" alt="Jenyvette Hsia" />
+          </div>
+          <div class="member-body">
+            <h3>Jenyvette Hsia</h3>
+            <span class="role">Student · Engineering</span>
+            <p>Western University Faculty of Engineering</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="https://hsiaresearchers.github.io/moleculelab/images/sara_headshot.png" alt="Sara Sadeghi Fard" />
+          </div>
+          <div class="member-body">
+            <h3>Sara Sadeghi Fard</h3>
+            <span class="role">Student · Medicine</span>
+            <p>Schulich School of Medicine and Dentistry</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <svg class="placeholder" width="60" height="60" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="30" r="18" stroke="white" stroke-width="1.5"/><path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="white" stroke-width="1.5"/></svg>
+          </div>
+          <div class="member-body">
+            <h3>Fatima Khaliq</h3>
+            <span class="role">Student · Medicine</span>
+            <p>Schulich School of Medicine and Dentistry</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-img">
+            <img src="https://hsiaresearchers.github.io/moleculelab/images/ojan_headshot.png" alt="Ojan Khosravifar" />
+          </div>
+          <div class="member-body">
+            <h3>Ojan Khosravifar</h3>
+            <span class="role">Student · Medicine</span>
+            <p>Schulich School of Medicine and Dentistry</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join-cta">
+    <div class="join-cta-text fade-in">
+      <span class="section-label">Opportunities</span>
+      <h2>Join Our <em>Team</em></h2>
+      <p>We welcome applications from medical students, residents, clinical fellows, and graduate students interested in hematology research. If you're curious and motivated, we'd love to hear from you.</p>
+    </div>
+    <a href="contact.html" class="btn-light fade-in">Get In Touch →</a>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+        <p>Bridging insights between the clinical laboratory and the bedside to transform patient care.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="contact.html">Get Involved</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Chin-Yee & Hsia Hematology Research Lab</p>
+      <p>Western University · London, Ontario</p>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting)
+          e.target.parentElement.querySelectorAll('.fade-in')
+            .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*120));
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '0.9rem 5vw' : '1.4rem 5vw';
+    });
+  </script>
+</body>
+</html>

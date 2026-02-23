@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Chin-Yee & Hsia Hematology Research Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --crimson:#8B1A2B;--crimson-dk:#5C0F1B;--crimson-lt:#B8354A;
+      --blush:#F2E4E4;--warm-white:#FAF7F5;--stone:#E8E0DC;
+      --text:#1C1211;--muted:#6B5858;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--warm-white);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:rgba(250,247,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,26,43,0.10);transition:padding .3s}
+    .nav-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--crimson-dk);letter-spacing:0.02em;line-height:1.2;text-decoration:none}
+    .nav-links{display:flex;gap:2.2rem;list-style:none}
+    .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--crimson)}
+    .section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--crimson);font-weight:500;margin-bottom:1rem;display:block}
+    h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;color:var(--text)}
+    h2 em{font-style:italic;color:var(--crimson)}
+    h3{font-family:var(--serif);font-weight:600;color:var(--crimson-dk)}
+    .page-header{padding:10rem 5vw 5rem;background:var(--crimson-dk);position:relative;overflow:hidden}
+    .page-header::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(180,40,60,0.3) 0%,transparent 70%)}
+    .page-header-inner{position:relative;z-index:2}
+    .page-header .section-label{color:rgba(242,228,228,0.6)}
+    .page-header h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--blush);line-height:1.1}
+    .page-header h1 em{font-style:italic;color:#fff}
+    .page-header p{margin-top:1.2rem;font-size:1rem;line-height:1.8;color:rgba(242,228,228,0.7);max-width:500px}
+    .marquee-strip{background:var(--crimson);padding:0.85rem 0;overflow:hidden;white-space:nowrap}
+    .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}
+    .marquee-inner span{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0 3rem}
+    .marquee-inner span::before{content:'◆';margin-right:3rem;opacity:0.5;font-size:0.5rem;vertical-align:middle}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .btn-primary{display:inline-block;padding:0.85rem 2.2rem;background:var(--crimson);color:#fff;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,transform .15s;border:none;cursor:pointer}
+    .btn-primary:hover{background:var(--crimson-dk);transform:translateY(-1px)}
+    .btn-outline{display:inline-block;padding:0.85rem 2.2rem;border:1.5px solid var(--crimson);color:var(--crimson);font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,color .2s;background:transparent;cursor:pointer}
+    .btn-outline:hover{background:var(--crimson);color:#fff}
+    footer{background:var(--crimson-dk);padding:4rem 5vw 2.5rem;color:rgba(242,228,228,0.6)}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(242,228,228,0.1)}
+    .footer-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--blush);line-height:1.2;text-decoration:none;display:block;margin-bottom:1rem}
+    .footer-brand p{font-size:0.85rem;line-height:1.75;max-width:280px}
+    .footer-links h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(242,228,228,0.9);margin-bottom:1rem}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:0.55rem}
+    .footer-links a{font-size:0.85rem;color:rgba(242,228,228,0.55);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--blush)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:768px){.nav-links{display:none}.footer-top{flex-direction:column}}
+
+    /* PAGE-SPECIFIC */
+
+    /* ── ABOUT CONTENT ── */
+    .about-intro {
+      padding: 7rem 5vw;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+    }
+    .about-intro-text h2 { margin-bottom: 1.8rem; }
+    .about-intro-text p {
+      font-size: 1.05rem; line-height: 1.85;
+      color: var(--muted); margin-bottom: 1.2rem;
+    }
+    .about-intro-text p strong { color: var(--text); font-weight: 500; }
+    .about-intro-img {
+      border-radius: 4px; overflow: hidden;
+      aspect-ratio: 4/3; position: relative;
+    }
+    .about-intro-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── MISSION STATEMENT ── */
+    .mission-statement {
+      background: var(--crimson-dk);
+      padding: 6rem 5vw;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .mission-statement::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('https://hsiaresearchers.github.io/moleculelab/images/blood_cells.png') center/600px repeat;
+      opacity: 0.04;
+    }
+    .mission-statement blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 300; font-style: italic;
+      color: var(--blush); line-height: 1.4;
+      max-width: 800px; margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    .mission-statement blockquote em { color: #fff; font-style: normal; }
+    .mission-statement cite {
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(242,228,228,0.5);
+      font-style: normal; position: relative;
+    }
+
+    /* ── VALUES ── */
+    .values { background: var(--stone); padding: 7rem 5vw; }
+    .values-header { margin-bottom: 4rem; }
+    .values-header h2 { margin-bottom: 1rem; }
+    .values-header p { font-size: 1rem; line-height: 1.75; color: var(--muted); max-width: 540px; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem;
+    }
+    .value-card {
+      background: var(--warm-white); padding: 2.5rem 2rem;
+      border-radius: 4px; border-left: 3px solid var(--crimson);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .value-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(92,15,27,0.1); }
+    .value-icon {
+      font-size: 1.6rem; margin-bottom: 1rem; display: block;
+    }
+    .value-card h3 { font-size: 1.2rem; margin-bottom: 0.7rem; }
+    .value-card p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); }
+
+    /* ── LAB OVERVIEW ── */
+    .lab-overview {
+      padding: 7rem 5vw;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .lab-overview h2 { margin-bottom: 1.5rem; }
+    .lab-overview p {
+      font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem;
+    }
+    .lab-overview p strong { color: var(--text); font-weight: 500; }
+    .connections-list { list-style: none; margin-top: 1.5rem; }
+    .connections-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 0; border-bottom: 1px solid var(--stone);
+      font-size: 0.9rem; line-height: 1.65; color: var(--muted);
+    }
+    .connections-list li:last-child { border-bottom: none; }
+    .connections-list .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--crimson); flex-shrink: 0; margin-top: 6px;
+    }
+    .lab-side-img {
+      border-radius: 4px; overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .lab-side-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    @media (max-width: 900px) {
+      .about-intro, .lab-overview { grid-template-columns: 1fr; gap: 3rem; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Get Involved</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">About the Lab</span>
+      <h1>Who We <em>Are</em></h1>
+      <p>A team of clinician-scientists committed to transforming hematology care through rigorous research and meaningful collaboration.</p>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>Bench to Bedside</span><span>Clinician-Scientists</span>
+      <span>Western University</span><span>London, Ontario</span>
+      <span>Evidence-Based Care</span><span>Patient Outcomes</span>
+      <span>Bench to Bedside</span><span>Clinician-Scientists</span>
+      <span>Western University</span><span>London, Ontario</span>
+      <span>Evidence-Based Care</span><span>Patient Outcomes</span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="about-intro">
+    <div class="about-intro-text fade-in">
+      <span class="section-label">Our Story</span>
+      <h2>Connecting the Lab to <em>Real Patient Care</em></h2>
+      <p>The Chin-Yee & Hsia Hematology Research Lab was founded on a simple but powerful conviction: that the gap between laboratory discovery and clinical application costs patients time, and sometimes lives.</p>
+      <p>Our work is driven by a commitment to <strong>bridging laboratory insights with real-world clinical decisions</strong>. We study rare hematologic diseases — conditions where early identification and timely intervention are critical — and develop the tools and evidence needed to act faster and smarter at the bedside.</p>
+      <p>We are equally committed to <strong>training the next generation of physician-scientists</strong> in a collaborative environment where curiosity drives discovery — and discovery improves lives.</p>
+    </div>
+    <div class="about-intro-img fade-in">
+      <img src="https://hsiaresearchers.github.io/moleculelab/images/microscope.png" alt="Microscope in the lab" />
+    </div>
+  </section>
+
+  <!-- MISSION STATEMENT -->
+  <div class="mission-statement">
+    <blockquote class="fade-in">
+      "We bridge insights between the <em>clinical laboratory</em> and the bedside to transform patient care."
+    </blockquote>
+    <cite class="fade-in">— Lab Mission Statement</cite>
+  </div>
+
+  <!-- VALUES -->
+  <section class="values">
+    <div class="values-header fade-in">
+      <span class="section-label">What Drives Us</span>
+      <h2>Our Core <em>Commitments</em></h2>
+      <p>Four principles guide every project, every publication, and every mentorship relationship in our lab.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-in">
+        <span class="value-icon">🔬</span>
+        <h3>Rigorous Science</h3>
+        <p>We hold our work to the highest standards of scientific rigor — from study design to interpretation — so that our findings can be trusted and acted upon in clinical settings.</p>
+      </div>
+      <div class="value-card fade-in">
+        <span class="value-icon">🤝</span>
+        <h3>Clinical Translation</h3>
+        <p>Research only matters if it reaches patients. We design our studies with clinical translation in mind from day one, ensuring our findings have a clear path to practice.</p>
+      </div>
+      <div class="value-card fade-in">
+        <span class="value-icon">🎓</span>
+        <h3>Mentorship & Training</h3>
+        <p>We invest deeply in the scientists of tomorrow. Students and fellows in our lab receive hands-on mentorship and the skills needed to lead independent research careers.</p>
+      </div>
+      <div class="value-card fade-in">
+        <span class="value-icon">💡</span>
+        <h3>Curiosity-Driven Discovery</h3>
+        <p>The best research begins with the right questions. We cultivate a culture of intellectual curiosity and open inquiry, where no question is too basic and no idea too ambitious.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAB OVERVIEW -->
+  <section class="lab-overview">
+    <div class="fade-in">
+      <span class="section-label">Lab & Connections</span>
+      <h2>Embedded in <em>Clinical Practice</em></h2>
+      <p>Unlike purely basic science labs, our work is deeply integrated with clinical hematology services. This gives us direct access to <strong>longitudinal patient data, clinical expertise, and the real-world problems</strong> that matter most to patients and clinicians.</p>
+      <p>Our institutional home at Western University and London Health Sciences Centre positions us at the intersection of academic research and front-line clinical care.</p>
+      <ul class="connections-list">
+        <li><div class="dot"></div><div>Western University, Department of Medicine — Hematology Division</div></li>
+        <li><div class="dot"></div><div>London Health Sciences Centre — active clinical hematology service</div></li>
+        <li><div class="dot"></div><div>Collaborating with computational and data science teams on AI model development</div></li>
+        <li><div class="dot"></div><div>Nationally and internationally connected network of hematology researchers</div></li>
+      </ul>
+    </div>
+    <div class="lab-side-img fade-in">
+      <img src="https://hsiaresearchers.github.io/moleculelab/images/blood_cells.png" alt="Hematology microscopy" />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+        <p>Bridging insights between the clinical laboratory and the bedside to transform patient care.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="contact.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Research Areas</h4>
+        <ul>
+          <li><a href="research.html">Rare Hematologic Diseases</a></li>
+          <li><a href="research.html">AI & Biomarkers</a></li>
+          <li><a href="research.html">Clonal Evolution (PNH)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Chin-Yee & Hsia Hematology Research Lab</p>
+      <p>Western University · London, Ontario</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const siblings = e.target.parentElement.querySelectorAll('.fade-in');
+          siblings.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 120));
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '0.9rem 5vw' : '1.4rem 5vw';
+    });
+  </script>
+</body>
+</html>
