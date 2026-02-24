@@ -1,1 +1,329 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Research</title>\n</head>\n<body>\n    <h1>Research</h1>\n    <img src="images/blood_cells.png" alt="Blood Cells">\n    <p>Your research content goes here.</p>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research · Chin-Yee & Hsia Hematology Research Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --crimson:#8B1A2B;--crimson-dk:#5C0F1B;--crimson-lt:#B8354A;
+      --blush:#F2E4E4;--warm-white:#FAF7F5;--stone:#E8E0DC;
+      --text:#1C1211;--muted:#6B5858;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--warm-white);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;background:rgba(250,247,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,26,43,0.10);transition:padding .3s}
+    .nav-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--crimson-dk);letter-spacing:0.02em;line-height:1.2;text-decoration:none}
+    .nav-links{display:flex;gap:2.2rem;list-style:none}
+    .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--crimson)}
+    .section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--crimson);font-weight:500;margin-bottom:1rem;display:block}
+    h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;color:var(--text)}
+    h2 em{font-style:italic;color:var(--crimson)}
+    h3{font-family:var(--serif);font-weight:600;color:var(--crimson-dk)}
+    .page-header{padding:10rem 5vw 5rem;background:var(--crimson-dk);position:relative;overflow:hidden}
+    .page-header::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(180,40,60,0.3) 0%,transparent 70%)}
+    .page-header-inner{position:relative;z-index:2}
+    .page-header .section-label{color:rgba(242,228,228,0.6)}
+    .page-header h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--blush);line-height:1.1}
+    .page-header h1 em{font-style:italic;color:#fff}
+    .page-header p{margin-top:1.2rem;font-size:1rem;line-height:1.8;color:rgba(242,228,228,0.7);max-width:500px}
+    .marquee-strip{background:var(--crimson);padding:0.85rem 0;overflow:hidden;white-space:nowrap}
+    .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}
+    .marquee-inner span{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0 3rem}
+    .marquee-inner span::before{content:'◆';margin-right:3rem;opacity:0.5;font-size:0.5rem;vertical-align:middle}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .btn-primary{display:inline-block;padding:0.85rem 2.2rem;background:var(--crimson);color:#fff;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,transform .15s;border:none;cursor:pointer}
+    .btn-primary:hover{background:var(--crimson-dk);transform:translateY(-1px)}
+    .btn-outline{display:inline-block;padding:0.85rem 2.2rem;border:1.5px solid var(--crimson);color:var(--crimson);font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,color .2s;background:transparent;cursor:pointer}
+    .btn-outline:hover{background:var(--crimson);color:#fff}
+    footer{background:var(--crimson-dk);padding:4rem 5vw 2.5rem;color:rgba(242,228,228,0.6)}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(242,228,228,0.1)}
+    .footer-logo{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--blush);line-height:1.2;text-decoration:none;display:block;margin-bottom:1rem}
+    .footer-brand p{font-size:0.85rem;line-height:1.75;max-width:280px}
+    .footer-links h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(242,228,228,0.9);margin-bottom:1rem}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:0.55rem}
+    .footer-links a{font-size:0.85rem;color:rgba(242,228,228,0.55);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--blush)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:768px){.nav-links{display:none}.footer-top{flex-direction:column}}
+
+    /* PAGE-SPECIFIC */
+
+    /* ── RESEARCH PILLARS ── */
+    .pillars { padding: 7rem 5vw; }
+    .pillars-intro { max-width: 680px; margin-bottom: 5rem; }
+    .pillars-intro h2 { margin-bottom: 1.2rem; }
+    .pillars-intro p { font-size: 1.05rem; line-height: 1.85; color: var(--muted); }
+
+    .pillar {
+      display: grid; grid-template-columns: 80px 1fr;
+      gap: 3rem; padding: 3.5rem 0;
+      border-top: 1px solid var(--stone);
+      align-items: start;
+      transition: background .2s;
+    }
+    .pillar:last-child { border-bottom: 1px solid var(--stone); }
+    .pillar-num {
+      font-family: var(--serif); font-size: 3.5rem; font-weight: 300;
+      color: rgba(139,26,43,0.15); line-height: 1; padding-top: 0.3rem;
+    }
+    .pillar-content h3 {
+      font-size: 1.5rem; margin-bottom: 1rem; color: var(--crimson-dk);
+    }
+    .pillar-content p {
+      font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem;
+    }
+    .pillar-content p:last-of-type { margin-bottom: 1.5rem; }
+    .pillar-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+    .tag {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border: 1px solid rgba(139,26,43,0.25);
+      color: var(--crimson); border-radius: 2px; font-weight: 500;
+    }
+
+    /* ── HIGHLIGHT IMAGE SECTION ── */
+    .research-visual {
+      background: var(--stone);
+      padding: 6rem 5vw;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .research-visual-img {
+      border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;
+      position: relative;
+    }
+    .research-visual-img img { width: 100%; height: 100%; object-fit: cover; }
+    .research-visual-img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1.5rem;
+      background: linear-gradient(to top, rgba(92,15,27,0.75), transparent);
+      color: rgba(242,228,228,0.9); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .research-visual-text h2 { margin-bottom: 1.5rem; }
+    .research-visual-text p {
+      font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem;
+    }
+    .research-visual-text p strong { color: var(--text); font-weight: 500; }
+
+    /* ── APPROACH ── */
+    .approach { padding: 7rem 5vw; background: var(--crimson-dk); }
+    .approach-header { margin-bottom: 4rem; }
+    .approach-header .section-label { color: rgba(242,228,228,0.6); }
+    .approach-header h2 { color: var(--blush); }
+    .approach-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .approach-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(242,228,228,0.1);
+      border-radius: 4px; padding: 2.2rem 1.8rem;
+      transition: background .2s;
+    }
+    .approach-card:hover { background: rgba(255,255,255,0.08); }
+    .approach-card h3 {
+      font-family: var(--serif); font-size: 1.2rem;
+      color: var(--blush); margin-bottom: 0.8rem;
+    }
+    .approach-card p { font-size: 0.88rem; line-height: 1.75; color: rgba(242,228,228,0.65); }
+    .approach-card .approach-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+
+    @media (max-width: 900px) {
+      .research-visual { grid-template-columns: 1fr; gap: 3rem; }
+      .approach-grid { grid-template-columns: 1fr 1fr; }
+      .pillar { grid-template-columns: 1fr; gap: 1rem; }
+      .pillar-num { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .approach-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Get Involved</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Our Work</span>
+      <h1>Research That Reaches <em>Patients</em></h1>
+      <p>Three interconnected pillars of investigation — designed to move from laboratory observation to clinical impact.</p>
+    </div>
+  </div>
+
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>PNH</span><span>Immune Cytopenias</span><span>Unexplained Cytopenias</span>
+      <span>Biomarker Discovery</span><span>Machine Learning</span><span>Longitudinal Cohorts</span>
+      <span>Clonal Evolution</span><span>Clinical Diagnostics</span>
+      <span>PNH</span><span>Immune Cytopenias</span><span>Unexplained Cytopenias</span>
+      <span>Biomarker Discovery</span><span>Machine Learning</span><span>Longitudinal Cohorts</span>
+      <span>Clonal Evolution</span><span>Clinical Diagnostics</span>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="pillars-intro fade-in">
+      <span class="section-label">Research Pillars</span>
+      <h2>Three Pillars of <em>Hematologic Discovery</em></h2>
+      <p>Our research program is structured around three interconnected themes — each grounded in clinical need and designed to generate findings that can change how patients are diagnosed and treated.</p>
+    </div>
+
+    <div class="pillar fade-in">
+      <div class="pillar-num">01</div>
+      <div class="pillar-content">
+        <h3>Early Identification of Rare Hematologic Disease</h3>
+        <p>Many rare blood disorders — including paroxysmal nocturnal hemoglobinuria (PNH), immune thrombocytopenia (ITP), and aplastic anemia — are frequently missed or delayed in diagnosis. The consequences for patients can be severe: disease progression, thrombotic events, and treatment delays that affect long-term outcomes.</p>
+        <p>Our work focuses on identifying the subtle laboratory signals present early in disease course. By studying large longitudinal datasets, we aim to define patterns that can alert clinicians to investigate further — before the disease declares itself more dramatically. This includes work on novel screening pathways, diagnostic algorithms, and clinical decision rules.</p>
+        <div class="pillar-tags">
+          <span class="tag">PNH</span>
+          <span class="tag">Immune Cytopenias</span>
+          <span class="tag">Unexplained Cytopenias</span>
+          <span class="tag">Diagnostic Algorithms</span>
+          <span class="tag">Screening</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar fade-in">
+      <div class="pillar-num">02</div>
+      <div class="pillar-content">
+        <h3>Biomarkers & AI-Driven Clinical Decision Making</h3>
+        <p>The clinical laboratory generates enormous amounts of data — complete blood counts, flow cytometry panels, morphology reports — that go largely underutilized in their predictive capacity. We are developing machine learning models that learn from this data to support real-world clinical decision-making.</p>
+        <p>Our AI research focuses on building and validating predictive models using institutional longitudinal data. These models are designed not as black boxes, but as explainable tools that can be interpreted and trusted by clinicians. Key goals include risk stratification for disease progression, prediction of treatment response, and flagging of atypical laboratory patterns warranting specialist review.</p>
+        <div class="pillar-tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Predictive Modelling</span>
+          <span class="tag">Real-World Data</span>
+          <span class="tag">Risk Stratification</span>
+          <span class="tag">Explainable AI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar fade-in">
+      <div class="pillar-num">03</div>
+      <div class="pillar-content">
+        <h3>Clonal Evolution in PNH & Bone Marrow Failure</h3>
+        <p>Paroxysmal nocturnal hemoglobinuria is a clonal disorder of hematopoietic stem cells, characterized by the expansion of PNH clones that escape complement-mediated destruction. The relationship between clone size, disease trajectory, and clinical outcomes remains incompletely understood.</p>
+        <p>We are building and analyzing longitudinal cohorts of PNH patients to understand how clonal evolution over time shapes the clinical phenotype. This work links serial flow cytometry data, complement activation markers, and clinical events to build a more complete picture of disease natural history — with the goal of informing monitoring strategies and treatment decisions.</p>
+        <div class="pillar-tags">
+          <span class="tag">PNH</span>
+          <span class="tag">Clonal Evolution</span>
+          <span class="tag">Longitudinal Cohorts</span>
+          <span class="tag">Flow Cytometry</span>
+          <span class="tag">Natural History</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL BREAK -->
+  <section class="research-visual">
+    <div class="research-visual-img fade-in">
+      <img src="images/blood_cells.png" alt="Blood cells under microscopy" />
+      <div class="research-visual-img-caption">Peripheral blood smear · hematologic analysis</div>
+    </div>
+    <div class="research-visual-text fade-in">
+      <span class="section-label">Why It Matters</span>
+      <h2>Rare Diseases, <em>Real Impact</em></h2>
+      <p>Rare hematologic diseases are rare by definition — but for the patients who have them, they are anything but rare. Delayed diagnosis, misclassification, and lack of evidence-based guidance create a high burden for patients and clinicians alike.</p>
+      <p>Our research aims to <strong>change the diagnostic journey</strong> for patients with rare blood disorders — shortening the path from symptom to diagnosis, and from diagnosis to the right treatment.</p>
+      <p>By generating robust real-world evidence and making it accessible to clinicians, we believe we can meaningfully improve outcomes for a patient population that has historically been underserved by clinical research.</p>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach">
+    <div class="approach-header fade-in">
+      <span class="section-label">How We Work</span>
+      <h2>Our Research <em>Approach</em></h2>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card fade-in">
+        <span class="approach-icon">🏥</span>
+        <h3>Clinically Embedded</h3>
+        <p>Our team works directly alongside clinical hematology services, giving us real-time access to clinical questions and patient data that keep our research grounded in practice.</p>
+      </div>
+      <div class="approach-card fade-in">
+        <span class="approach-icon">📊</span>
+        <h3>Data-Driven</h3>
+        <p>We leverage large institutional longitudinal datasets and develop rigorous analytical frameworks — including machine learning — to extract meaningful signal from complex clinical data.</p>
+      </div>
+      <div class="approach-card fade-in">
+        <span class="approach-icon">🔁</span>
+        <h3>Iterative & Translational</h3>
+        <p>Research findings loop back into clinical practice quickly. We design studies with implementation in mind, and partner with clinical teams to test and refine our tools in real settings.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Chin-Yee & Hsia<br>Hematology Research Lab</a>
+        <p>Bridging insights between the clinical laboratory and the bedside to transform patient care.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="contact.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Research Areas</h4>
+        <ul>
+          <li><a href="research.html#01">Rare Hematologic Diseases</a></li>
+          <li><a href="research.html#02">AI & Biomarkers</a></li>
+          <li><a href="research.html#03">Clonal Evolution (PNH)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Chin-Yee & Hsia Hematology Research Lab</p>
+      <p>Western University · London, Ontario</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const siblings = e.target.parentElement.querySelectorAll('.fade-in');
+          siblings.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 120));
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '0.9rem 5vw' : '1.4rem 5vw';
+    });
+  </script>
+</body>
+</html>
